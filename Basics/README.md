@@ -1,4 +1,4 @@
-# Introduction
+# Basics 📌
 
 React is a JavaScript library for building user interfaces created by Facebook. Using React you can build user interfaces specifically Single Page Applications (SPA) or websites. Let’s learn some basics before jumping into the code.
 
