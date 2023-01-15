@@ -218,6 +218,7 @@ const ChildComponent = () => (
 );
 ```
 Using any of the above three methods brings back the original layout because it eliminates the pointless div in the DOM.
+<hr>
 
 ### <b>Rendering lists in a div wrapper</b>
 
@@ -297,4 +298,69 @@ This is a very simplified use case where you might be rendering an extra div on 
 As your application becomes larger in size and complex in architecture, you might find yourself rendering a significant amount of unnecessary divs to render large lists in your application. This could bloat your HTML, causing performance issues on older devices.
 
 It may not be that significant at all, but rendering unnecessary HTML elements is always a bad practice. If you have a generic list component for your application, consider using fragments as wrappers to avoid abstracting away from clean code and semantics.
+<hr>
+
+## <b>Using the <code>key</code> prop with React fragments</b>
+Some scenarios require the use of key props in a fragment. Let’s take a look at the following code:
+
+```javascript
+const items = [
+  {name: "Ibas", title: "developer"},
+  {name: "John", title: "teacher"},
+];
+
+const App = () => (
+  <>
+    <h1>List of all items:</h1>
+    {items.map(({name, title}, index) => (
+      <div key={index}>
+        <p>{name}</p>
+        <p>{title}</p>
+      </div>
+    ))}
+  </>
+);
+
+export default App;
+```
+
+The focus here is on the iteration with the map() method. As we know, whenever we map items in React to render a list, React uses the key prop to identify which of the items changed, were removed, or added.
+
+<br>
+
+Also, whenever we map through items to render multiple JSX, we must wrap the JSX in a container element.
+
+<br>
+
+In the code above, we wrapped the JSX with a div and assigned the required key prop. It works fine, but let’s assume the div is redundant in the DOM tree and we don’t want to render it. As you can guess, we must replace it with a fragment.
+
+<br>
+
+But, using the shorthand notation <></> will not work here because it cannot take an attribute. Instead, we can use React.Fragment or Fragment syntax. Be aware that this syntax only accepts the key prop for now.
+
+So by applying the key prop on the fragment, our code now looks like this:
+
+```javascript
+import React from "react";
+
+const App = () => (
+  <>
+    <h1>List of all items:</h1>
+    {items.map(({ name, title }, index) => (
+      <React.Fragment key={index}>
+        <p>{name}</p>
+        <p>{title}</p>
+      </React.Fragment>
+    ))}
+  </>
+);
+
+export default App;
+```
+<hr>
+
+# <b>Conclusion</b>
+Fragments allow you to write cleaner, readable and maintainable code. They are not a replacement for divs in your HTML, but they offer a better approach to structuring and rendering your markup if you’re using unnecessary divs in your code.
+
+You can avoid issues that break your layouts or potentially optimize your markup rendering time using fragments. However, you should only use them when needed. If you need a wrapper to your JSX for styling, use a div instead.
 
