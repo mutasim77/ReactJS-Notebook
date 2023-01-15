@@ -105,3 +105,6 @@ Each Row renders a div, enclosing content aligned in a single row, and a Column 
 ```
 The above code renders three columns in a single row, as shown below:
 
+<img width="700" alt="Screen Shot 2023-01-15 at 5 54 08 PM" src="https://user-images.githubusercontent.com/96326525/212539105-7b7be163-9d79-40cf-861e-20f631b69211.png">
+
+
