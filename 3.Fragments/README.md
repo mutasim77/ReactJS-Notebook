@@ -108,3 +108,30 @@ The above code renders three columns in a single row, as shown below:
 <img width="700" alt="Screen Shot 2023-01-15 at 5 54 08 PM" src="https://user-images.githubusercontent.com/96326525/212539105-7b7be163-9d79-40cf-861e-20f631b69211.png">
 
 
+Let’s refactor the above code to separate the first two columns into a different component called ChildComponent. Imagine this as a reusable component that you might want to decouple:
+
+```javascript
+export default function App() {
+  return (
+    <Row>
+      <ChildComponent />
+      <Column>
+        <Box color="#ff3333" />
+      </Column>
+    </Row>
+  );
+}
+
+const ChildComponent = () => (
+  <div>
+    <Column>
+      <Box color="#007bff" />
+    </Column>
+    <Column>
+      <Box color="#fc3" />
+    </Column>
+  </div>
+);
+```
+
+The expected result should be the same as before, but it isn’t. Decoupling the first two columns in a separate component, ChildComponent, breaks the layout:
