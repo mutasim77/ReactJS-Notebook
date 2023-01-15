@@ -135,3 +135,5 @@ const ChildComponent = () => (
 ```
 
 The expected result should be the same as before, but it isn’t. Decoupling the first two columns in a separate component, ChildComponent, breaks the layout:
+
+<img width="700" alt="Screen Shot 2023-01-15 at 5 57 51 PM" src="https://user-images.githubusercontent.com/96326525/212539219-b8cf8345-fc0e-4820-afef-843e1283e884.png">
