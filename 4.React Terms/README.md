@@ -25,3 +25,69 @@ CDN stands for Content Delivery Network. CDNs deliver cached, static content fro
 JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to React.createElement() calls which return plain JavaScript objects called “React elements”. To get a basic introduction to JSX see the <a href="https://reactjs.org/docs/introducing-jsx.html">docs here</a> and find a more in-depth tutorial on JSX <a href="https://reactjs.org/docs/jsx-in-depth.html">here</a>.
 
 React DOM uses camelCase property naming convention instead of HTML attribute names. For example, <code>tabindex</code> becomes <code>tabIndex</code> in JSX. The attribute <code>class</code>  is also written as <code>className</code> since class is a reserved word in JavaScript:
+```html
+<h1 className="hello">My name is Mutasim!</h1>
+```
+
+- ## Elements 🟠
+React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of “components”. An element describes what you want to see on the screen. React elements are immutable.
+```javascript
+const element = <h1>Hello, world</h1>;
+```
+Typically, elements are not used directly, but get returned from components.
+
+- ## Components 🔴
+React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+```javascript
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+Components can also be ES6 classes:
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (```<Wrapper/>```  not ```<wrapper/>```).
+
+- ## props 🟤
+props are inputs to a React component. They are data passed down from a parent component to a child component.
+
+Remember that props are readonly. They should not be modified in any way:
+
+```javascript
+// Wrong!
+props.number = 42;
+```
+If you need to modify some value in response to user input or a network response, use <code>state</code> instead.
+
+- ## props.children 🔵
+<code>props.children</code> is available on every component. It contains the content between the opening and closing tags of a component. For example:
+
+```html
+<Welcome>Hello world!</Welcome>
+````
+
+The string <code>Hello world!</code> is available in <code>props.children</code> in the Welcome component: 
+
+```javascript
+function Welcome(props) {
+  return <p>{props.children}</p>;
+}
+```
+
+For components defined as classes, use <code>this.props.children</code>:
+
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <p>{this.props.children}</p>;
+  }
+}
+```
+
+
+
