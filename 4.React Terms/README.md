@@ -20,3 +20,8 @@ Package managers are tools that allow you to manage dependencies in your project
 
 - ## CDN 🔵
 CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe.
+
+- ## JSX 🟡
+JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to React.createElement() calls which return plain JavaScript objects called “React elements”. To get a basic introduction to JSX see the <a href="https://reactjs.org/docs/introducing-jsx.html">docs here</a> and find a more in-depth tutorial on JSX <a href="https://reactjs.org/docs/jsx-in-depth.html">here</a>.
+
+React DOM uses camelCase property naming convention instead of HTML attribute names. For example, <code>tabindex</code> becomes <code>tabIndex</code> in JSX. The attribute <code>class</code>  is also written as <code>className</code> since class is a reserved word in JavaScript:
