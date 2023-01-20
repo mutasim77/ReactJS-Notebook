@@ -75,3 +75,16 @@ var n2 = 1;
 n1 === n2 // also true
 ```
 <img width="699" alt="Screen Shot 2023-01-20 at 2 08 47 PM" src="https://user-images.githubusercontent.com/96326525/213647083-594db53c-73a2-408b-924e-17d74f57c53d.png">
+
+But, when talking about objects, this doesn’t hold true anymore:
+
+```javascript
+var str1 =  new String(‘abc’);
+var str2 = new String(‘abc’);
+str1 === str2 // false
+var arr1 = [];
+var arr2 = [];
+arr1 === arr2 // false
+```
+
+In each of these cases, two different objects are created, and therefore, their references are not equal:
