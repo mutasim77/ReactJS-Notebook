@@ -89,3 +89,14 @@ arr1 === arr2 // false
 
 In each of these cases, two different objects are created, and therefore, their references are not equal:
 <img width="629" alt="Screen Shot 2023-01-20 at 2 14 57 PM" src="https://user-images.githubusercontent.com/96326525/213648117-2408c701-b7ae-4fd0-adbd-1cea64806c8e.png">
+
+If you want to check if two objects contain the same value, you have to use value equality, where you compare the values of the properties of the object.
+
+In JavaScript, there’s no direct way to perform value equality on objects and arrays. If you’re working with string objects, you can use the valueOf or trim methods, which return a string value:
+
+```javascript
+var str1 =  new String(‘abc’);
+var str2 = new String(‘abc’);
+str1.valueOf() === str2.valueOf() // true
+str1.trim() === str2.trim() // true
+```
