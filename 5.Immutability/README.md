@@ -88,3 +88,4 @@ arr1 === arr2 // false
 ```
 
 In each of these cases, two different objects are created, and therefore, their references are not equal:
+<img width="629" alt="Screen Shot 2023-01-20 at 2 14 57 PM" src="https://user-images.githubusercontent.com/96326525/213648117-2408c701-b7ae-4fd0-adbd-1cea64806c8e.png">
