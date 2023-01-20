@@ -63,3 +63,14 @@ str1 === str2 // true
 ```
 In the example above, both the <code>str1</code> and <code>str2</code>references are equal because they point to the same object, <code>'abc'</code>:
 <img width="700" alt="Screen Shot 2023-01-20 at 2 06 54 PM" src="https://user-images.githubusercontent.com/96326525/213646878-b040cbac-f16c-4b26-80d2-a11cbb55fedd.png">
+
+Two references are also equal when they refer to the same value if this value is immutable:
+
+```javascript
+var str1 = ‘abc’;
+var str2 = ‘abc’;
+str1 === str2 // true
+var n1 = 1;
+var n2 = 1;
+n1 === n2 // also true
+```
