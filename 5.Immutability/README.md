@@ -35,3 +35,30 @@ You can even define the str reference as a constant:
 const str = 'abc'
 ```
 Therefore, assigning a new string generates an error. However, this doesn’t relate to immutability. If you want to modify the string value, you have to use manipulation methods like <code>replace()</code>, <code>toUpperCase()</code>, or <code>trim()</code>. All of these methods return new strings; they don’t modify the original one.
+
+## <b>Value type🟣</b>
+
+It’s important to pay attention to the value type. String values are immutable, but string objects are not.
+
+```javascript
+const str = new String("abc");
+str.myNewProperty = "some value";
+
+alert(str.myNewProperty);
+
+str.myNewProperty = "a new value";
+
+alert(str.myNewProperty);
+```
+Strings are immutable. The last example creates an object with the String() constructor that wraps the immutable string value. You can add new properties to this wrapper because it’s an object, and it’s not frozen. This example leads us to a concept that is important to understand; the difference between reference and value equality.
+
+## <b>Reference equality vs. value equality🟢</b>
+
+With reference equality, you compare object references with either the <code>===</code> and <code>!==</code> operators or the <code>==</code> and <code>!=</code> operators. If the references point to the same object, they are considered equal:
+
+```javascript
+var str1 = ‘abc’;
+var str2 = str1;
+str1 === str2 // true
+```
+In the example above, both the <code>str1</code> and <code>str2</code>references are equal because they point to the same object, <code>'abc'</code>:
