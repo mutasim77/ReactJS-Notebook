@@ -62,3 +62,4 @@ var str2 = str1;
 str1 === str2 // true
 ```
 In the example above, both the <code>str1</code> and <code>str2</code>references are equal because they point to the same object, <code>'abc'</code>:
+<img width="700" alt="Screen Shot 2023-01-20 at 2 06 54 PM" src="https://user-images.githubusercontent.com/96326525/213646878-b040cbac-f16c-4b26-80d2-a11cbb55fedd.png">
