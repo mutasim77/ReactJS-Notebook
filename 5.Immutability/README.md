@@ -92,7 +92,7 @@ In each of these cases, two different objects are created, and therefore, their 
 
 If you want to check if two objects contain the same value, you have to use value equality, where you compare the values of the properties of the object.
 
-In JavaScript, there’s no direct way to perform value equality on objects and arrays. If you’re working with string objects, you can use the valueOf or trim methods, which return a string value:
+In JavaScript, there’s no direct way to perform value equality on objects and arrays. If you’re working with string objects, you can use the <code>valueOf</code> or <code>trim</code> methods, which return a string value:
 
 ```javascript
 var str1 =  new String(‘abc’);
@@ -100,3 +100,5 @@ var str2 = new String(‘abc’);
 str1.valueOf() === str2.valueOf() // true
 str1.trim() === str2.trim() // true
 ```
+
+For any other type of object, you either have to implement your own equals method or use a third-party library. It’s easier to test if two objects are equal if they are immutable. React takes advantage of this concept to make some performance optimizations; let’s explore these in detail.
