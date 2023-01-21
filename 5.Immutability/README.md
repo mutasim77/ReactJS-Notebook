@@ -102,3 +102,47 @@ str1.trim() === str2.trim() // true
 ```
 
 For any other type of object, you either have to implement your own equals method or use a third-party library. It’s easier to test if two objects are equal if they are immutable. React takes advantage of this concept to make some performance optimizations; let’s explore these in detail.
+
+## Immutability performance optimizations in React🔵
+
+React maintains an internal representation of the UI, called the virtual DOM. When either a property or the state of a component changes, the virtual DOM is updated to reflect those changes. Manipulating the virtual DOM is easier and faster because nothing is changed in the UI. Then, React compares the virtual DOM with the version before the update to know what changed, known as the reconciliation process.
+
+<br>
+
+Therefore, only the elements that changed are updated in the real DOM. However, sometimes, parts of the DOM are re-rendered even when they didn’t change. In this case, they’re a side effect of other parts that do change. You could implement the <code>shouldComponentUpdate()</code> function to check if the properties or the state really changed, then return <code>true</code> to let React perform the update:
+
+```javascript
+class MyComponent extends Component {
+// ...
+shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.myProp !== nextProps.color) {
+      return true;
+    }
+    return false;
+  }
+// ...
+}
+```
+
+If the properties and state of the component are immutable objects or values, you can check to see if they changed with a simple equality operator.
+
+From this perspective, immutability removes complexity because sometimes it is hard to know exactly what changed. For example, think about deep fields:
+
+```javascript
+myPackage.sender.address.country.id = 1;
+```
+
+How can you efficiently track which nested object changed? Think about arrays. For two arrays of the same size, the only way to know if they are equal is by comparing each element, which is a costly operation for large arrays.
+
+<br>
+
+The most simple solution is to use immutable objects. If the object needs to be updated, you have to create a new object with the new value since the original one is immutable and cannot be changed. You can use reference equality to know that it changed.
+
+<br>
+
+The React documentation also suggests treating state as if it were immutable. Directly manipulating the state nullifies React’s state management, resulting in performance issues. The React useState Hook plays a vital role in performance optimization, allowing you to avoid directly manipulating the state in functional components.
+
+<br>
+To some people, this concept may seem a little inconsistent or opposed to the ideas of performance and simplicity. So, let’s review the options you have to create new objects and implement immutability.
+
+
