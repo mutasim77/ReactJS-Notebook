@@ -154,5 +154,7 @@ To some people, this concept may seem a little inconsistent or opposed to the id
 
 In most real world applications, your state and properties will be objects and arrays. JavaScript provides some methods to create new versions of them.
 
-### <b style="color: red;">Object.assign</b>
+### <code><b style="color: red;">Object.assign</b></code>
+
+Instead of manually creating an object with the new property, you can use <code>Object.assign</code> to avoid defining the unmodified properties:
 
