@@ -158,3 +158,48 @@ In most real world applications, your state and properties will be objects and a
 
 Instead of manually creating an object with the new property, you can use <code>Object.assign</code> to avoid defining the unmodified properties:
 
+```javascript
+const modifyShirt = (shirt, newColor, newSize) => {
+  return {
+    id: shirt.id,
+    desc: shirt.desc,
+    color: newColor,
+    size: newSize
+  };
+}
+
+
+const modifyShirt = (shirt, newColor, newSize) => {
+  return Object.assign( {}, shirt, {
+    color: newColor,
+    size: newSize
+  });
+}
+```
+
+<code>Object.assign</code> will copy all of the properties of the objects passed as parameters, starting from the second parameter to the object specified in the first parameter.
+
+### <code><b style="color: red;">Spread operator</b></code>
+
+You can use the spread operator with the same effect; the difference is that Object.assign() uses setter methods to assign new values, while the spread operator doesn’t:
+
+```javascript
+const modifyShirt = (shirt, newColor, newSize) => {
+  return {
+    ...shirt,
+    color: newColor,
+    size: newSize
+  };
+}
+```
+
+You can also use the spread operator to create arrays with new values:
+
+```javascript
+const addValue = (arr) => {
+  return [...arr, 1];
+};
+```
+
+### <code><b style="color: red;">concat and slice methods</b></code>
+
