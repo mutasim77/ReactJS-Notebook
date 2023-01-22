@@ -11,6 +11,7 @@ const newItems = items.concat([newItem]);
 Despite popular belief, there’s actually nothing wrong with mutating objects. In certain situations, like concurrency, it can become a problem, however, mutating objects is the easiest development approach. Just like most things in programming, it’s a trade-off.
 
 Functional programming and concepts like immutability are popular topics. But in the case of React, immutability isn’t just fashionable, it has some real benefits. In this article, we’ll explore immutability in React, covering what it is and how it works. Let’s get started!
+<hr>
 
 ## <b>What is immutability?🟠</b>
 
@@ -35,6 +36,7 @@ You can even define the str reference as a constant:
 const str = 'abc'
 ```
 Therefore, assigning a new string generates an error. However, this doesn’t relate to immutability. If you want to modify the string value, you have to use manipulation methods like <code>replace()</code>, <code>toUpperCase()</code>, or <code>trim()</code>. All of these methods return new strings; they don’t modify the original one.
+<hr>
 
 ## <b>Value type🟣</b>
 
@@ -51,6 +53,7 @@ str.myNewProperty = "a new value";
 alert(str.myNewProperty);
 ```
 Strings are immutable. The last example creates an object with the String() constructor that wraps the immutable string value. You can add new properties to this wrapper because it’s an object, and it’s not frozen. This example leads us to a concept that is important to understand; the difference between reference and value equality.
+<hr>
 
 ## <b>Reference equality vs. value equality🟢</b>
 
@@ -102,6 +105,7 @@ str1.trim() === str2.trim() // true
 ```
 
 For any other type of object, you either have to implement your own equals method or use a third-party library. It’s easier to test if two objects are equal if they are immutable. React takes advantage of this concept to make some performance optimizations; let’s explore these in detail.
+<hr>
 
 ## Immutability performance optimizations in React🔵
 
@@ -144,5 +148,11 @@ The React documentation also suggests treating state as if it were immutable. Di
 
 <br>
 To some people, this concept may seem a little inconsistent or opposed to the ideas of performance and simplicity. So, let’s review the options you have to create new objects and implement immutability.
+<hr>
 
+## <b>Implementing immutability in React🟠</b>
+
+In most real world applications, your state and properties will be objects and arrays. JavaScript provides some methods to create new versions of them.
+
+### <b style="color: red;">Object.assign</b>
 
