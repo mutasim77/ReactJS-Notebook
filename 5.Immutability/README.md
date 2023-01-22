@@ -203,3 +203,25 @@ const addValue = (arr) => {
 
 ### <code><b style="color: red;">concat and slice methods</b></code>
 
+Alternately, you can use methods like concat or slice, which return a new array without modifying the original one:
+
+```javascript
+const addValue = (arr) => {
+  return arr.concat([1]);
+};
+const removeValue = (arr, index) => {
+  return arr.slice(0, index)
+    .concat(
+        arr.slice(index+1)
+    );
+};
+```
+
+In this <a href="https://gist.github.com/JoeNoPhoto/329f002ef4f92f1fcc21280dc2f4aa71">gist</a>, you’ll see how to combine the spread operator with these methods to avoid mutating arrays while performing common operations.
+
+<br>
+However, there are two main drawbacks to using these native approaches. For one, they copy properties or elements from one object or array to another, which could be a slow operation for larger objects and arrays. In addition, objects and arrays are mutable by default. There’s nothing that enforces immutability. You have to remember to use one of these methods.
+
+<br>
+For these reasons, it’s better to use an external library that handles immutability.
+
