@@ -107,7 +107,7 @@ str1.trim() === str2.trim() // true
 For any other type of object, you either have to implement your own equals method or use a third-party library. It’s easier to test if two objects are equal if they are immutable. React takes advantage of this concept to make some performance optimizations; let’s explore these in detail.
 <hr>
 
-## Immutability performance optimizations in React🔵
+## <b>Immutability performance optimizations in React🔵</b>
 
 React maintains an internal representation of the UI, called the virtual DOM. When either a property or the state of a component changes, the virtual DOM is updated to reflect those changes. Manipulating the virtual DOM is easier and faster because nothing is changed in the UI. Then, React compares the virtual DOM with the version before the update to know what changed, known as the reconciliation process.
 
@@ -223,5 +223,21 @@ In this <a href="https://gist.github.com/JoeNoPhoto/329f002ef4f92f1fcc21280dc2f4
 However, there are two main drawbacks to using these native approaches. For one, they copy properties or elements from one object or array to another, which could be a slow operation for larger objects and arrays. In addition, objects and arrays are mutable by default. There’s nothing that enforces immutability. You have to remember to use one of these methods.
 
 <br>
-For these reasons, it’s better to use an external library that handles immutability.
 
+For these reasons, it’s better to use an external library that handles immutability.
+<hr>
+
+## <b>Immutability libraries🟣</b>
+The React team recommends Immutable.js and immutability-helper, but you can find many libraries with similar functionality. There are three main types:
+  - Libraries that work with specialized data structures
+  - Libraries that work by freezing objects 
+  - Libraries with helper functions that perform immutable operations
+  
+Most of these libraries work with persistent data structures.
+<hr>
+
+## <b>Benefits of immutability🔵</b>
+Overall, immutability improves your app’s performance and promotes easy debugging. It allows for the simple and inexpensive implementation of sophisticated techniques for detecting changes, and it ensures that the computationally expensive process of updating the DOM is performed only when absolutely necessary.
+<hr>
+
+## <b>Disadvantages of immutability🟢</b>
