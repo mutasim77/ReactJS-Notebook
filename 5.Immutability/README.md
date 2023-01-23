@@ -249,3 +249,11 @@ Many of these libraries work with their own data types. Although they provide co
 If the library doesn’t implement new data structures, for example, libraries that work by freezing objects, there won’t be any of the benefits of structural sharing. Most likely, objects will be copied when updated, and performance will suffer in some cases.
 
 Additionally, implementing immutability concepts with larger teams can be time-consuming because individual developers must be disciplined, especially when using third-party libraries with steep learning curves. You also have to consider the learning curve associated with these libraries.
+
+
+## <b>Conclusion🟠</b>
+Understanding immutability is essential for React developers. An immutable value or object cannot be changed, so every update creates new value, leaving the old one untouched. For example, if your application state is immutable, you can save all the state objects in a single store to easily implement functionality to undo and redo.
+
+Version control systems like Git work in a similar way. Redux is also based on that principle. However, the focus on Redux is more on the side of pure functions and snapshots of the application state.
+
+Immutability has other advantages like avoiding unexpected side effects or reducing coupling, but it also has disadvantages. Remember, as with many things in programming, it’s a trade-off.
