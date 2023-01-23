@@ -241,3 +241,11 @@ Overall, immutability improves your app’s performance and promotes easy debugg
 <hr>
 
 ## <b>Disadvantages of immutability🟢</b>
+
+However, immutability is not without its own problems. As I mentioned before, when working with objects and arrays, you either have to remember to use methods than enforce immutability or use third-party libraries.
+
+Many of these libraries work with their own data types. Although they provide compatible APIs and ways to convert these types to native JavaScript types, you have to be careful when designing your application to avoid high degrees of coupling or harm performance with methods like toJs().
+
+If the library doesn’t implement new data structures, for example, libraries that work by freezing objects, there won’t be any of the benefits of structural sharing. Most likely, objects will be copied when updated, and performance will suffer in some cases.
+
+Additionally, implementing immutability concepts with larger teams can be time-consuming because individual developers must be disciplined, especially when using third-party libraries with steep learning curves. You also have to consider the learning curve associated with these libraries.
