@@ -29,3 +29,35 @@ import PropTypes from 'prop-types';
 ```
 
 They are often used after the component ends and starts with the name of the component as shown:
+
+```jsx
+import React from 'react';
+import { PropTypes } from "prop-types";
+ 
+const Count = (props) => {
+  return (
+    <>
+      .........
+    </>
+  )
+};
+ 
+Count.propTypes = {
+  //// key is the name of the prop and
+// value is the PropType
+}
+export default Count;
+```
+
+PropTypes are also objects with a key and a value pair where the ‘key’ is the name of the prop while the value represents the type or class by which they are defined.
+
+Since defining PropTypes on a component does not depend on the component implementation, we will be leaving out the code for the component itself in all the following examples. The code above can be simplified to the following:
+
+
+```jsx
+Count.propTypes = {
+// Put props here
+}
+```
+
+Let's discuss how many types of PropTypes are there before understanding them with an example.
