@@ -69,3 +69,16 @@ The most basic way we can check a prop's type is by checking if it falls under t
 
 Below is the list of all data types that are considered primitive or the basic ones with their classes that we can use to check props.
 <img width="545" alt="Screen Shot 2023-01-25 at 8 11 59 AM" src="https://user-images.githubusercontent.com/96326525/214465188-748d52a4-339b-4fd2-8781-d368c35b99d7.png">
+
+Below is an example that shows us how to use these PropTypes for type checking in our app. As we discussed already, they are defined as objects with a key and a value pair where the key is the name of the object while value contains the classes which will be used for type checking.
+
+```jsx
+Count.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number,
+  address: PropTypes.object,
+  friends: PropTypes.array,
+};
+```
+
+In the above code, the name prop is expected to have a value which is a string, age is a number, address is an object, and friends is an array. If any value other than this has been used for the same props as a value, it will show an error in the console like this:
