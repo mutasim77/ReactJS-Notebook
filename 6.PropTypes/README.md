@@ -68,3 +68,4 @@ Let's discuss how many types of PropTypes are there before understanding them wi
 The most basic way we can check a prop's type is by checking if it falls under the category of primitive types in JavaScript, such as a boolean, string, object, and so on.
 
 Below is the list of all data types that are considered primitive or the basic ones with their classes that we can use to check props.
+<img width="545" alt="Screen Shot 2023-01-25 at 8 11 59 AM" src="https://user-images.githubusercontent.com/96326525/214465188-748d52a4-339b-4fd2-8781-d368c35b99d7.png">
