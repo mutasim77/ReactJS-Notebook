@@ -97,3 +97,7 @@ Count.propTypes = {
   }),
 };
 ```
+
+## <b>Conclusion</b> 🟢
+
+PropTypes are a great way to catch errors at run time and act as the first line of defense for your applications. They're not as type-safe as TypeScript but they're much easier to set up and work with.
