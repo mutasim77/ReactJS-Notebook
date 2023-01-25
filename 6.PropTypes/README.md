@@ -61,3 +61,10 @@ Count.propTypes = {
 ```
 
 Let's discuss how many types of PropTypes are there before understanding them with an example.
+
+## <b>Basic Types of PropTypes</b> 🔵
+
+
+The most basic way we can check a prop's type is by checking if it falls under the category of primitive types in JavaScript, such as a boolean, string, object, and so on.
+
+Below is the list of all data types that are considered primitive or the basic ones with their classes that we can use to check props.
