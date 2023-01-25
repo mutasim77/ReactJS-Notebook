@@ -83,3 +83,17 @@ Count.propTypes = {
 
 In the above code, the name prop is expected to have a value which is a string, age is a number, address is an object, and friends is an array. If any value other than this has been used for the same props as a value, it will show an error in the console like this:
 <img width="700" alt="Screen Shot 2023-01-25 at 8 14 19 AM" src="https://user-images.githubusercontent.com/96326525/214465416-b4124b82-97d9-4095-941b-f808352a442e.png">
+
+We can chain any of the above with <code>isRequired</code> to make sure a warning is shown if the prop isn't provided.
+
+```jsx
+Count.propTypes = {
+  basicObject: PropTypes.object,
+  numbers: PropTypes.objectOf(PropTypes.numbers),
+  messages: PropTypes.instanceOf(Message),
+  contactList: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }),
+};
+```
