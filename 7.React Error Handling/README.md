@@ -121,3 +121,48 @@ function App(){
   );
 }
 ```
+
+- ## ErrorBoundary component ⚫️
+
+react-error-boundary also provides a way for our code to recover from errors caught by our error boundaries. This is done using the reset keys and the resetErrorBoundary function passed to the fallback component.
+
+The best way to explain how this works is to use an example code block taken directly from the React documentation:
+
+```jsx
+function ErrorFallback({error, componentStack, resetErrorBoundary}) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+      <pre>{componentStack}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  )
+}
+
+function Bomb() {
+  throw new Error('💥 KABOOM 💥')
+}
+
+function App() {
+  const [explode, setExplode] = React.useState(false)
+  return (
+    <div>
+      <button onClick={() => setExplode(e => !e)}>toggle explode</button>
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={() => setExplode(false)}
+        resetKeys={[explode]}
+      >
+        {explode ? <Bomb /> : null}
+      </ErrorBoundary>
+    </div>
+  )
+}
+```
+
+As we can see from the code above, a state Hook was created and used to determine whether the <code>App</code> component renders a <code>Bomb</code> component that throws an error or an error-safe component. Reset keys were also passed to the error boundary component. These reset keys determine whether the error boundary’s internal state will be reset. If one of the reset keys change during renders, the error boundary’s internal state will be reset.
+
+On the other hand, calling the <code>resetComponent</code> function triggers the onResethandler of our ErrorBoundary component, where we set our explode state value to false. This causes our App component to render an error-safe component.
+
+We also have the <code>onResetKeysChange</code> handler, which is triggered when the value of the reset keys change, causing a reset of the error boundary’s internal state.
