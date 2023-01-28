@@ -163,6 +163,10 @@ function App() {
 
 As we can see from the code above, a state Hook was created and used to determine whether the <code>App</code> component renders a <code>Bomb</code> component that throws an error or an error-safe component. Reset keys were also passed to the error boundary component. These reset keys determine whether the error boundary’s internal state will be reset. If one of the reset keys change during renders, the error boundary’s internal state will be reset.
 
-On the other hand, calling the <code>resetComponent</code> function triggers the onResethandler of our ErrorBoundary component, where we set our explode state value to false. This causes our App component to render an error-safe component.
+On the other hand, calling the <code>resetComponent</code> function triggers the <code>onResethandler</code> of our <code>ErrorBoundary</code> component, where we set our explode state value to false. This causes our App component to render an error-safe component.
 
 We also have the <code>onResetKeysChange</code> handler, which is triggered when the value of the reset keys change, causing a reset of the error boundary’s internal state.
+
+- ## ErrorBoundary component 🟢
+
+react-error-boundary enables React developers to reduce the amount of code that must be written and expand their error boundary capabilities to catch other forms of errors that wouldn’t otherwise be identified by regular error boundaries. Learn more about react-error-boundary on <a href="https://github.com/bvaughn/react-error-boundary">GitHub</a>.
