@@ -99,3 +99,13 @@ For each particular piece of changing data, there should be just one component t
 - ## Lifecycle Methods 🔵
 
 Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM (<a href="https://reactjs.org/docs/react-component.html#mounting">mounting</a>), when the component updates, and when the component gets unmounted or removed from the DOM.
+
+- ## Controlled vs. Uncontrolled Components 🔴
+
+React has two different approaches to dealing with form inputs.
+
+An input form element whose value is controlled by React is called a controlled component. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+
+An uncontrolled component works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can’t force the field to have a certain value.
+
+In most cases you should use controlled components.
