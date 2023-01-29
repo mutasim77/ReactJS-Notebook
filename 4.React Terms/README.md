@@ -117,3 +117,9 @@ A “key” is a special string attribute you need to include when creating arra
 Keys only need to be unique among sibling elements in the same array. They don’t need to be unique across the whole application or even a single component.
 
 Don’t pass something like <code>Math.random()</code> to keys. It is important that keys have a “stable identity” across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as <code>post.id</code>.
+
+- ## Refs 🔵
+
+React supports a special attribute that you can attach to any component. The <code>ref</code> attribute can be an object created by React.createRef() function or a callback function, or a string (in legacy API). When the <code>ref</code> attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+
+Use refs sparingly. If you find yourself often using refs to “make things happen” in your app, consider getting more familiar with <a href="https://reactjs.org/docs/lifting-state-up.html">top-down data flow<a>.
