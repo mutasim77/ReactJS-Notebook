@@ -95,3 +95,7 @@ The most important difference between <code>state</code> and <code>props</code> 
 
 For each particular piece of changing data, there should be just one component that “owns” it in its state. Don’t try to synchronize states of two different components. Instead, lift it up to their closest shared ancestor, and pass it down as props to both of them.
 
+
+- ## Lifecycle Methods 🔵
+
+Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM (<a href="https://reactjs.org/docs/react-component.html#mounting">mounting</a>), when the component updates, and when the component gets unmounted or removed from the DOM.
