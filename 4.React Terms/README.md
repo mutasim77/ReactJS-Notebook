@@ -122,4 +122,16 @@ Don’t pass something like <code>Math.random()</code> to keys. It is important 
 
 React supports a special attribute that you can attach to any component. The <code>ref</code> attribute can be an object created by React.createRef() function or a callback function, or a string (in legacy API). When the <code>ref</code> attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
 
-Use refs sparingly. If you find yourself often using refs to “make things happen” in your app, consider getting more familiar with <a href="https://reactjs.org/docs/lifting-state-up.html">top-down data flow<a>.
+Use refs sparingly. If you find yourself often using refs to “make things happen” in your app, consider getting more familiar with <a href="https://reactjs.org/docs/lifting-state-up.html">top-down data flow</a>.
+
+
+- ## Events 🟢 
+
+Handling events with React elements has some syntactic differences:
+
+- React event handlers are named using camelCase, rather than lowercase.
+- With JSX you pass a function as the event handler, rather than a string.
+
+- ## Reconciliation 🔴
+
+When a component’s props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called “reconciliation”.
