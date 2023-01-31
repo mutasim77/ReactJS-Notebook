@@ -29,3 +29,24 @@ const ActionButton = ({ label, action }) => {
 };
 export default ActionButton;
 ```
+
+The ```<button>``` expression here is actually the JSX way of calling the React.createElement('button') statement, which is not actually a representation of an HTML button element — it’s a React element.
+
+You can gain access to the actual HTML element by creating a React reference and passing it to the element itself.
+
+```jsx
+import React, { useRef } from "react";
+const ActionButton = ({ label, action }) => {
+  const buttonRef = useRef(null);
+  return (
+    <button onClick={action} ref={buttonRef}>
+      {label}
+    </button>
+  );
+};
+export default ActionButton;
+```
+
+This way, at any time in the lifecycle of the component, we can access the actual HTML element at <code>buttonRef.current</code>.
+
+Now we know how to access DOM nodes inside a React component. Let’s take a look at some of the situations where this may be useful.
