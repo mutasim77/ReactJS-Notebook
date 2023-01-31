@@ -17,3 +17,15 @@ In this article, we’re going to investigate why React, a framework meant to ab
 When working with class-based components in the past, we used <code>createRef()</code> to create a ref. However, now that React recommends functional components, and general practice is to follow the Hooks way of doing things, we don’t need to use <code>createRef()</code>. Instead, we use <code>useRef(null)</code> to create refs in functional components.
 
 As stated in the intro, refs are escape hatches for React developers, and we should try to avoid using them if possible.
+
+When we obtain a node using a <code>ref</code> and later modify some attribute or the DOM structure of it, it can enter into conflict with React’s diff and update approaches.
+
+First, let’s start with a simple component and grab a node element using refs.
+
+```jsx
+import React from "react";
+const ActionButton = ({ label, action }) => {
+  return <button onClick={action}>{label}</button>;
+};
+export default ActionButton;
+```
