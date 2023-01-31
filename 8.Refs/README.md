@@ -11,3 +11,9 @@ These escape hatches are refs, which allow us to access DOM properties directly.
 An example of this would be auto-focusing a text box when a component renders. React doesn’t provide an easy way to do this, so we can use refs to access the DOM directly and focus the text box for us whenever the component renders on the screen.
 
 In this article, we’re going to investigate why React, a framework meant to abstract your code away from DOM manipulation, leaves the door open for developers to access it.
+
+- ## Creating refs 🔴
+
+When working with class-based components in the past, we used <code>createRef()</code> to create a ref. However, now that React recommends functional components, and general practice is to follow the Hooks way of doing things, we don’t need to use <code>createRef()</code>. Instead, we use <code>useRef(null)</code> to create refs in functional components.
+
+As stated in the intro, refs are escape hatches for React developers, and we should try to avoid using them if possible.
