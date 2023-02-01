@@ -50,3 +50,5 @@ export default ActionButton;
 This way, at any time in the lifecycle of the component, we can access the actual HTML element at <code>buttonRef.current</code>.
 
 Now we know how to access DOM nodes inside a React component. Let’s take a look at some of the situations where this may be useful.
+
+- ## Using React refs 🟣
