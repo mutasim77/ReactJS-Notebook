@@ -52,3 +52,42 @@ This way, at any time in the lifecycle of the component, we can access the actua
 Now we know how to access DOM nodes inside a React component. Let’s take a look at some of the situations where this may be useful.
 
 - ## Using React refs 🟣
+
+One of the many concepts that React popularized among developers is the concept of declarative views. Before declarative views, most of us were modifying the DOM by calling functions that explicitly changed it.
+
+As mentioned at the introduction of this article, we are now declaring views based on a state, and — though we are still calling functions to alter this state — we are not in control of when the DOM will change or even if it should change.
+
+Because of this inversion of control, we’d lose this imperative nature if it weren’t for refs.
+Here are a few use cases where it may make sense to bring refs into your code.
+
+- ## Focus control 🟡
+
+You can achieve focus in an element programmatically by calling <code>focus()</code> on the node instance.
+Because the DOM exposes this as a function call, the best way to do this in React is to create a ref and manually do it when we think it’s suitable.
+
+```jsx
+import React, { useState } from "react";
+const InputModal = ({ initialValue, onSubmit, onClose }) => {
+  const [value, setValue] = useState(initialValue);
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(value);
+    onClose();
+  };
+  return (
+    <div className="modal--overlay">
+      <div className="modal">
+        <h1>Insert a new value</h1>
+        <form action="?" onSubmit={onSubmit}>
+          <input type="text" onChange={onChange} value={value} />
+          <button>Save new value</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+export default InputModal;
+```
