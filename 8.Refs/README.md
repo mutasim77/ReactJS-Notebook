@@ -91,3 +91,37 @@ const InputModal = ({ initialValue, onSubmit, onClose }) => {
 };
 export default InputModal;
 ```
+In this modal, we allow the user to modify a value already set in the screen below. It would be a better user experience if the input was on focus when the modal opens, which could enable a smooth keyboard transition between the two screens.
+
+The first thing we need to do is get a reference for the input:
+
+```jsx
+import React, { useRef, useState } from "react";
+const InputModal = ({ initialValue, onSubmit, onClose }) => {
+  const [value, setValue] = useState(initialValue);
+  const inputRef = useRef(null);
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(value);
+    onClose();
+  };
+  return (
+    <div className="modal--overlay">
+      <div className="modal">
+        <h1>Insert a new value</h1>
+        <form action="?" onSubmit={onSubmit}>
+          <input ref={inputRef} 
+                 type="text" 
+                 onChange={onChange}
+                 value={value} />
+          <button>Save new value</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+export default InputModal;
+```
