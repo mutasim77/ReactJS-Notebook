@@ -164,3 +164,5 @@ export default InputModal;
 
 So when you open the modal, you should see the text box focused by default:
 <img width="700" alt="Screen Shot 2023-02-03 at 12 02 14 PM" src="https://user-images.githubusercontent.com/96326525/216524586-defd12f8-0da7-44ca-9a34-4e6e3849856a.png">
+
+Remember that you need to access the element through the current property.
