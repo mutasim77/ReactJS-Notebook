@@ -166,3 +166,11 @@ So when you open the modal, you should see the text box focused by default:
 <img width="700" alt="Screen Shot 2023-02-03 at 12 02 14 PM" src="https://user-images.githubusercontent.com/96326525/216524586-defd12f8-0da7-44ca-9a34-4e6e3849856a.png">
 
 Remember that you need to access the element through the current property.
+
+- ## Conclusion 🔴
+
+We started with a recap on the basic concepts of React and its usage, why we generally shouldn’t break the framework’s model, and why we may sometimes need to.
+
+Accessing the DOM through the interface the library exposes helps to maintain the internals of React in place (remember that <code>useState</code> contains more logic than just triggering a re-render cycle, like batching updates and, in the future, time slicing).
+
+Remember to use refs only when there is an implicit function call that React can’t handle through its methods. Also, make sure it doesn’t alter the internal state of the components. For more information, read the official React documentation about refs.
