@@ -73,4 +73,8 @@ var Name = function Name() {
 As you can see, instead of passing down any value to the props i.e. render, we are passing a function here. So, when that function gets called we will get the ```<h2>``` element with the message “Hi, Mutasim!”.
 
 As promised, we will now go ahead to an app applying what we have learnt about Render Props.
+<hr>
 
+- ## Conclusion 🖇
+
+We saw how Render Props helped us avoid duplicate code and create a more robust app. Clearly, there is merit in applying Render Props to your next app. React’s latest context API uses render props. Even Apollo client uses it. Developers are increasingly accepting render props and all we are saying is you should definitely give it a try!
