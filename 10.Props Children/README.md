@@ -14,3 +14,26 @@ function Button (props) {
   return <button>{props.children}</button>
 }
 ```
+
+I can then instantiate the component with ```<Button>Click Me!</Button>``` and then a button with the text click me would display on the page.
+
+For a layout, I could do something like:
+
+```jsx
+function Container ({ children }) {
+  return <div style={{ maxWidth: 800px, margin: 0 auto }}>{children}</div>
+}
+```
+
+Note: in this example, I'm destructuring the props object, so I can use children directly.
+
+And then to instantiate it I could do:
+
+```jsx
+<Container>
+  <h1>Welcome to my App</h1>
+  <p>Hello, hi, this is my paragraph</p>
+</Container>
+```
+
+Normally in order to pass props from one component to another, you need to do ```<Button label="hello" />``` and then use <code>props.label</code> in the component, but React children is more flexible and allows you to mirror HTML more closely within your JSX.
