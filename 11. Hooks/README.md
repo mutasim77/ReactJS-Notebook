@@ -24,3 +24,27 @@ Here is a list of some commonly used React hooks:
 - ```useDebugValue```: Provides a label for custom hooks in React DevTools.
 
 These hooks cover a wide range of functionality and help streamline the development process in React. 
+
+## useState:
+The useState hook is used to manage state within functional components in React. It allows you to declare and update state variables. The useState hook returns an array with two elements: the current state value and a function to update that value.
+
+Example:
+```jsx
+Copy code
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+ }
+```
