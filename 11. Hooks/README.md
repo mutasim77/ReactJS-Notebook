@@ -31,7 +31,6 @@ The useState hook is used to manage state within functional components in React.
 
 Example:
 ```jsx
-Copy code
 import React, { useState } from 'react';
 
 function Counter() {
@@ -48,4 +47,25 @@ function Counter() {
     </div>
   );
  }
+```
+
+## useEffect:
+The useEffect hook allows you to perform side effects in functional components. It runs after rendering and can be used for tasks such as data fetching, subscriptions, or manually interacting with the DOM. The effect function is called after every render by default, but you can specify dependencies to control when the effect should run.
+
+Example:
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function DataFetcher() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // Fetch data from an API
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
+
+  return <div>{data ? <p>Data: {data}</p> : <p>Loading...</p>}</div>;
+}
 ```
