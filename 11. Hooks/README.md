@@ -11,10 +11,10 @@ Secondly, hooks enable the reuse of logic across components. The "useEffect" hoo
 Another advantage of hooks is the ability to create custom hooks. Custom hooks are functions that combine multiple built-in hooks and encapsulate complex logic into reusable units. This promotes code modularity and makes it easier to share code between projects or within a team.
 
 Here is a list of some commonly used React hooks:
-<a href="#useState">f</a>
 
-- ```useState```: Manages state within functional components.
-- ```useEffect```: Performs side effects after rendering, such as data fetching or subscriptions.
+
+- **<a href="#useState">useState</a>:** Manages state within functional components.
+- **<a href="#useEffect">useEffect</a>:** Performs side effects after rendering, such as data fetching or subscriptions.
 - ```useContext```: Accesses the value of a React context.
 - ```useReducer```: Alternative to useState for managing complex state logic.
 - ```useCallback```: Memoizes a function to prevent unnecessary re-rendering of components that depend on it.
@@ -29,6 +29,7 @@ Below, we'll dive into each React hook in more detail. Let's start exploring eac
 
 
 <div id="useState"></div>
+
 ## useState 🟤
 The useState hook is a built-in hook provided by React that allows you to add state to functional components. With this hook, you can create and manage state variables within a functional component, giving it the ability to hold and update data.
 
@@ -90,3 +91,7 @@ In this example, we create a state variable called text and initialize it with a
 These examples demonstrate how useState enables you to add and manage state in functional components. By using the setState function, you can update the state variable, triggering a re-render of the component and reflecting the updated state in the UI.
 
 Remember that you can use multiple useState hooks within a single component to manage multiple independent state variables. Each state variable will have its own corresponding setState function.
+
+
+<div id="useEffect"></div>
+## useState ⚪️
