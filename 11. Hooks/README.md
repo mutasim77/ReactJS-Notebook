@@ -15,9 +15,9 @@ Here is a list of some commonly used React hooks:
 
 - **<a href="#useState">useState</a>:** Manages state within functional components.
 - **<a href="#useEffect">useEffect</a>:** Performs side effects after rendering, such as data fetching or subscriptions.
+- **<a href="#useCallback">useCallback</a>:** Memoizes a function to prevent unnecessary re-rendering of components that depend on it.
 - ```useContext```: Accesses the value of a React context.
 - ```useReducer```: Alternative to useState for managing complex state logic.
-- ```useCallback```: Memoizes a function to prevent unnecessary re-rendering of components that depend on it.
 - ```useMemo```: Memoizes a value to prevent expensive computations on every render.
 - ```useRef```: Creates a mutable ref object that persists across renders.
 - ```useLayoutEffect```: Similar to useEffect but fires synchronously after all DOM mutations.
@@ -163,3 +163,8 @@ useEffect(() => {
 }, []);
 ```
 Here, the effect adds an event listener for the click event when the component mounts, and removes it when the component unmounts. The empty dependency array ensures that the effect only runs once.
+
+
+<div id="useCallback"></div>
+
+## useCallback ⚫️
