@@ -18,6 +18,7 @@ Here is a list of some commonly used React hooks:
 - **<a href="#useCallback">useCallback</a>:** Memoizes a function to prevent unnecessary re-rendering of components that depend on it.
 - **<a href="#useMemo">useMemo</a>:** Memoizes a value to prevent expensive computations on every render.
 - **<a href="#useRef">useRef</a>:** Creates a mutable ref object that persists across renders.
+- **<a href="#useTransition">useTransition</a>:** Lets you update the state without blocking the UI.
 - ```useContext```: Accesses the value of a React context.
 - ```useReducer```: Alternative to useState for managing complex state logic.
 - ```useLayoutEffect```: Similar to useEffect but fires synchronously after all DOM mutations.
@@ -342,3 +343,44 @@ In the handleClick function, we log the current value of the input to the consol
 useRef is particularly useful when you need to interact with DOM elements directly or store mutable values that won't trigger a re-render. It can also be used to store and access any other mutable data throughout the lifecycle of a component.
 
 Remember that updating the value of a ref using ```.current``` doesn't trigger a re-render. If you want to update the value and cause a re-render, you should use state (useState) instead.
+
+
+<div id="useTransition"></div>
+
+## useTransition ⚪️
+
+*useTransition* is a React Hook that lets you update the state without blocking the UI.
+
+The useTransition hook allows us to specify some state updates as not as important. These state updates will be executed in parallel with other state updates, but the rendering of the component will not wait for these less important state updates.
+
+```jsx
+function App() {
+  const [name, setName] = useState("")
+  const [list, setList] = useState(largeList)
+  const [isPending, startTransition] = useTransition()
+
+  function handleChange(e) {
+    setName(e.target.value)
+    startTransition(() => {
+      setList(largeList.filter(item => item.name.includes(e.target.value)))
+    })
+  }
+
+  return (
+    <>
+      <input type="text" value={name} onChange={handleChange} />
+      {isPending ? (
+        <div>Loading...</div>
+      ) : (
+        list.map(item => <ListComponent key={item.id} item={item} />)
+      )}
+    </>
+  )
+}
+```
+
+Calling the *useTransition* hook returns an array with the first value being an *isPending* variable and the second value being the *startTransition* function. The *isPending* variable simply returns true while the code inside the *startTransition* hook is running. Essentially, this variable is true when the slow state update is running and false when it is finished running. The *startTransition* function takes a single callback and this callback just contains all the code related to the slow state update including the setting of the state.
+
+In our case we are wrapping *setList* in our *startTransition* function which tells React that our *setList* state update is of low importance. This means that as soon as all of our normal state updates are finished that the component should rerender even if this slow state update is not finished. Also, if a user interacts with your application, such as clicking a button or typing in an input, those interactions will take higher priority than the code in the *startTransition* function. This ensures that even if you have really slow code running it won’t block your user from interacting with the application.
+
+In conclusion, the *useTransition* hook makes working with slow, computationally intense state updates so much easier since now we can tell React to prioritize those updates at a lower level to more important updates which makes your application seem much more performant to users.
