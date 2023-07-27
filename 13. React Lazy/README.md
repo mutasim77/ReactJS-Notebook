@@ -52,3 +52,84 @@ export default Home;
 ```
 
 > Note: ```lazy()``` used this way returns a ```Promise``` object. That promise resolves to a module that contains a React component we want to lazy load in its ```default``` export.
+
+We've implemented lazy loading using ```lazy()```, but the code above will always throw an error saying that our *“React component suspended while rendering, but no fallback UI was specified”*. This can be fixed by wrapping the component with **React.Suspense's fallback** and attaching the fallback props as we explained earlier:
+
+```jsx
+import { lazy, Suspense } from 'react';
+const AboutUs = lazy(() => import('./About'));
+
+const Home = () => {
+   return (
+      <div className="App">
+         <h1>Home Page</h1>
+         <Suspense fallback={<div>Loading...</div>}>
+            <AboutUs />
+         </Suspense>
+      </div>
+   );
+};
+export default Home;
+```
+
+> Note: The fallback prop can take a component to show before the original content loads up.
+
+
+### How to Implement Lazy Loading With React Router ? 
+
+Lazy routing is actually a good practice for routes that have a lot of content and may slow down your application's load time. Implementing lazy loading for React routes is almost identical to what we did earlier when lazy loading dynamically imported components.
+
+Lazy loading React routes refers to dynamically importing a component only when it's needed. For example, say we have two routes in our application and two components representing those routes. If we implement mentioned routing in the following way, each component will be loaded only when we navigate to the corresponding route:
+
+```jsx
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+const Home = lazy(() => import('./Home'));
+const Products = lazy(() => import('./Products'));
+
+function App() {
+   return (
+        <Router>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/products" element={<Products />} />
+                </Routes>
+            </Suspense>
+        </Router>
+   );
+}
+export default App;
+```
+
+### Conclusion
+From this note, we learned what lazy loading and code splitting are, how to implement them, and that the best place to implement lazy loading is with routes. This avoids rendering the entire page at once, which may result in a slower load time when dealing with pages with large amounts of content.
+
+
+# Dynamic imports 🔴
+
+This is a modern JavaScript feature that imports our files almost like a promise.
+
+Before:
+
+```js
+import Login from "Pages/Login.js";
+import Home from "Pages/Home.js";
+import About from "Pages/About.js";
+import Contact from "Pages/Contact.js";
+import Blog from "Pages/Blog.js";
+import Shop from "Pages/Shop.js";
+```
+
+The code snippets above import our files using static import. When webpack comes across this syntax, it bundles all the files together. This is because we want to statically include them together.
+
+After:
+
+```js
+const module = await import('/modules/myCustomModule.js');
+```
+
+Unlike static imports, which are synchronous, dynamic imports are asynchronous. This enables us to import our modules and files on demand.
+Once webpack comes across this syntax, it immediately starts code splitting our application.
+
