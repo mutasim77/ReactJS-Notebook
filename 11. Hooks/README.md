@@ -466,3 +466,5 @@ function MyComponent() {
 
 Again, in case the context value changes, **<Context.Consumer>** will re-call its render function.
 
+<img width="500" alt="Screenshot 2023-07-29 at 8 11 06 AM" src="https://github.com/mutasim77/ReactJS-Notebook/assets/96326525/ec4f7e4c-24e4-49ee-96b3-a7f4b6f2d8cd">
+
