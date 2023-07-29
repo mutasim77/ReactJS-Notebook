@@ -19,7 +19,7 @@ Here is a list of some commonly used React hooks:
 - **<a href="#useMemo">useMemo</a>:** Memoizes a value to prevent expensive computations on every render.
 - **<a href="#useRef">useRef</a>:** Creates a mutable ref object that persists across renders.
 - **<a href="#useTransition">useTransition</a>:** Lets you update the state without blocking the UI.
-- ```useContext```: Accesses the value of a React context.
+- **<a href="#useContext">useContext</a>:** Lets you read and subscribe to <a href="https://react.dev/learn/passing-data-deeply-with-context">context</a> from your component.
 - ```useReducer```: Alternative to useState for managing complex state logic.
 - ```useLayoutEffect```: Similar to useEffect but fires synchronously after all DOM mutations.
 - ```useImperativeHandle```: Customizes the instance value that is exposed to parent components when using ref.
@@ -384,3 +384,85 @@ Calling the *useTransition* hook returns an array with the first value being an 
 In our case we are wrapping *setList* in our *startTransition* function which tells React that our *setList* state update is of low importance. This means that as soon as all of our normal state updates are finished that the component should rerender even if this slow state update is not finished. Also, if a user interacts with your application, such as clicking a button or typing in an input, those interactions will take higher priority than the code in the *startTransition* function. This ensures that even if you have really slow code running it won’t block your user from interacting with the application.
 
 In conclusion, the *useTransition* hook makes working with slow, computationally intense state updates so much easier since now we can tell React to prioritize those updates at a lower level to more important updates which makes your application seem much more performant to users.
+
+
+<div id="useContext"></div>
+
+## useContext 🔴
+
+React context provides data to components no matter how deep they are in the components tree. The context is used to manage global data, e.g. global state, theme, services, user settings, and more.
+
+###  How to use the context ? 
+Using the context in React requires 3 simple steps: creating the context, providing the context, and consuming the context.
+
+- A. Creating the context
+
+The built-in factory function createContext(default) creates a context instance:
+
+```jsx
+// context.js
+import { createContext } from 'react';
+
+export const Context = createContext('Default Value');
+```
+
+The factory function accepts one optional argument: the **default** value.
+
+- B. Providing the context
+
+**Context.Provider** component available on the context instance is used to provide the context to its child components, no matter how deep they are.
+
+To set the value of context use the **value** prop available on the **<Context.Provider value={value} />** :
+
+```jsx
+import { Context } from './context';
+
+function Main() {
+  const value = 'My Context Value';
+  return (
+    <Context.Provider value={value}>
+      <MyComponent />
+    </Context.Provider>
+  );
+}
+```
+
+Again, what's important here is that all the components that'd like later to consume the context have to be wrapped inside the provider component.
+
+If you want to change the context value, simply update the value prop.
+
+- C. Consuming the context
+
+Consuming the context can be performed in 2 ways.
+
+The first way, the one I recommend, is to use the ```useContext(Context)``` React hook:
+
+```jsx
+import { useContext } from 'react';
+import { Context } from './context';
+
+function MyComponent() {
+  const value = useContext(Context);
+
+  return <span>{value}</span>;
+}
+```
+
+The hook returns the value of the context: value = useContext(Context). The hook also makes sure to re-render the component when the context value changes.
+
+The second way is by using a render function supplied as a child to Context.Consumer special component available on the context instance:
+
+```jsx
+import { Context } from './context';
+
+function MyComponent() {
+  return (
+    <Context.Consumer>
+      {value => <span>{value}</span>}
+    </Context.Consumer>
+  );
+}
+```
+
+Again, in case the context value changes, **<Context.Consumer>** will re-call its render function.
+
