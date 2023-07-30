@@ -628,3 +628,13 @@ Now, in the child component, we receive the props, which, when emitted, will tri
 ```jsx
 <button onClick={handleIncrement}>Increment</button>
 ```
+
+### When not to use the useReducer Hook
+Despite being able to use the useReducer Hook to handle complex state logic in our app, it’s important to note that there are some scenarios where a third-party state management library like **Redux** may be a better option:
+
+- When your application needs a single source of truth
+- When you want a more predictable state
+- When state-lifting to the top-level component no longer suffices
+- When you need to persist state even after a page refresh
+  
+With all these benefits, it’s also worth noting that using a library like Redux, as opposed to using pure React with useReducer, comes with some tradeoffs. For example, Redux has a hefty learning curve that is minimized by using **Redux Toolkit**, and it’s definitely not the fastest way to write code. Rather, it’s intended to give you an absolute and predictable way of managing state in your app.
