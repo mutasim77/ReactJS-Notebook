@@ -20,7 +20,7 @@ Here is a list of some commonly used React hooks:
 - **<a href="#useRef">useRef</a>:** Creates a mutable ref object that persists across renders.
 - **<a href="#useTransition">useTransition</a>:** Lets you update the state without blocking the UI.
 - **<a href="#useContext">useContext</a>:** Lets you read and subscribe to <a href="https://react.dev/learn/passing-data-deeply-with-context">context</a> from your component.
-- ```useReducer```: Alternative to useState for managing complex state logic.
+- **<a href="#useReducer">useReducer</a>:** Alternative to useState for managing complex state logic.
 - ```useLayoutEffect```: Similar to useEffect but fires synchronously after all DOM mutations.
 - ```useImperativeHandle```: Customizes the instance value that is exposed to parent components when using ref.
 - ```useDebugValue```: Provides a label for custom hooks in React DevTools.
@@ -498,3 +498,20 @@ The context in React lets you supply child components with global data, no matte
 Using the context requires 3 steps: creating, providing, and consuming the context.
 
 When integrating the context into your application, consider that it adds a good amount of complexity. Sometimes drilling the props through 2-3 levels in the hierarchy isn't a big problem.
+
+
+
+<div id="useReducer"></div>
+
+## useReducer 🟤
+
+**useReducer** is one of the additional Hooks that shipped with React v16.8. An alternative to the useState Hook, useReducer helps you manage complex state logic in React applications. When combined with other Hooks like **useContext**, **useReducer** can be a good alternative to **Redux, Recoil, or MobX**. In certain cases, it is an outright better option.
+
+While Redux, Recoil, and MobX are usually the best options for managing global states in large React applications, more often than necessary, many React developers jump into these third-party state management libraries when they could have effectively handled their state with Hooks.
+
+### How does the useReducer Hook work? 🤓
+
+The **useReducer** Hook is used to store and update states, just like the useState Hook. It accepts a reducer function as its first parameter and the initial state as the second. useReducer returns an array that holds the current state value and a dispatch function to which you can pass an action and later invoke it. While this is similar to the pattern Redux uses, there are a few differences.
+
+For example, the useReducer function is tightly coupled to a specific reducer. We dispatch action objects to that reducer only, whereas in Redux, the dispatch function sends the action object to the store. At the time of dispatch, the components don’t need to know which reducer will process the action.
+
