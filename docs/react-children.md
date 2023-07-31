@@ -1,8 +1,12 @@
-# React Children 👻
+---
+id: react-children
+title: Children
+sidebar_position: 10
+---
+
+# Children Props 👻
 
 The most obvious and common prop that developers work with within React is the <code>children</code> prop. In the majority of cases, there is no need to understand how the <code>children</code> prop looks like. But in some cases, we want to inspect the <code>children </code>prop to maybe wrap each child in another element/component or to reorder or slice them. In those cases inspecting how the <code>children</code> prop looks like becomes essential.
-
-<hr>
 
 You can use props.children in React in order to access and utilize what you put inside the open and closing tags when you are creating an instance of a component.
 
@@ -37,3 +41,4 @@ And then to instantiate it I could do:
 ```
 
 Normally in order to pass props from one component to another, you need to do ```<Button label="hello" />``` and then use <code>props.label</code> in the component, but React children is more flexible and allows you to mirror HTML more closely within your JSX.
+
