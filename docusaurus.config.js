@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ReactJS Notebook 📔',
-  tagline: `If you aren't taking notes, you aren't learning!`,
+  tagline: `If you are not taking notes, you are not learning!`,
   favicon: 'img/logo.png',
 
   // Set the production url of your site here

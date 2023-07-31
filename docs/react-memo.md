@@ -1,12 +1,18 @@
+---
+id: react-memo
+title: Memo
+sidebar_position: 14
+---
+
 # React Memo 🪀
 
 One of the benefits of using React is it’s improved performance, which allows your web applications to load faster and allows you to navigate from one page to another without having to wait so long. This built-in performance optimization has some drawbacks that you can work on to improve the performance of your web applications.
 
 One of the most common and reliable methods for optimizing the performance of your React application is to "memoize" the code you write in your React components using React Memo. This allows you to avoid unnecessary re-renders, enhancing the performance of your React application.
 
-> ? WHAT IS MEMOIZATION?
-> 
-> Memoization is a form of caching used to store results of expensive functions and avoid repeated calls, leading to repetitive computation of results.
+:::success WHAT IS MEMOIZATION? 
+Memoization is a form of caching used to store results of expensive functions and avoid repeated calls, leading to repetitive computation of results.
+:::
 
 ## What is React Memo? 🤓
 
@@ -36,8 +42,9 @@ export const MemoizedComponent = React.memo(myComponent);
 
 In the example above, **myComponent** outputs the same content as **MemoizedComponent**, but the difference between both is that **MemoizedComponent** render is memoized. This means that this component will only re-render when the props change.
 
-> Note: A memoized component will only re-render when there is a change in props value or when the state and context of the component change.
-
+:::success Note:
+A memoized component will only re-render when there is a change in props value or when the state and context of the component change.
+:::
 
 ## When to use React Memo? 🙃
 You now know what it means to memoize a component and the advantages of optimization. But this doesn’t mean you should memoize all your components to ensure maximum performance optimization of performance.

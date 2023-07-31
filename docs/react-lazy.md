@@ -1,3 +1,9 @@
+---
+id: react-lazy
+title: Lazy
+sidebar_position: 13
+---
+
 # React Lazy 🦥
 
 Lazy loading is not a new concept. It has been available for quite some time. In essence, lazy loading means that a component or a part of code must get loaded when it is required. It is also referred to as code splitting and data fetching.
@@ -51,7 +57,9 @@ const Home = () => {
 export default Home;
 ```
 
-> Note: ```lazy()``` used this way returns a ```Promise``` object. That promise resolves to a module that contains a React component we want to lazy load in its ```default``` export.
+:::success Note: 
+```lazy()``` used this way returns a ```Promise``` object. That promise resolves to a module that contains a React component we want to lazy load in its ```default``` export.
+:::
 
 We've implemented lazy loading using ```lazy()```, but the code above will always throw an error saying that our *“React component suspended while rendering, but no fallback UI was specified”*. This can be fixed by wrapping the component with **React.Suspense's fallback** and attaching the fallback props as we explained earlier:
 
@@ -71,9 +79,9 @@ const Home = () => {
 };
 export default Home;
 ```
-
-> Note: The fallback prop can take a component to show before the original content loads up.
-
+:::success Note: 
+The fallback prop can take a component to show before the original content loads up.
+:::
 
 ### How to Implement Lazy Loading With React Router ? 
 
@@ -103,10 +111,6 @@ function App() {
 export default App;
 ```
 
-### Conclusion
-From this note, we learned what lazy loading and code splitting are, how to implement them, and that the best place to implement lazy loading is with routes. This avoids rendering the entire page at once, which may result in a slower load time when dealing with pages with large amounts of content.
-
-
 # Dynamic imports 🔴
 
 This is a modern JavaScript feature that imports our files almost like a promise.
@@ -133,3 +137,6 @@ const module = await import('/modules/myCustomModule.js');
 Unlike static imports, which are synchronous, dynamic imports are asynchronous. This enables us to import our modules and files on demand.
 Once webpack comes across this syntax, it immediately starts code splitting our application.
 
+
+## Conclusion 💡
+From this note, we learned what lazy loading and code splitting are, how to implement them, and that the best place to implement lazy loading is with routes. This avoids rendering the entire page at once, which may result in a slower load time when dealing with pages with large amounts of content.

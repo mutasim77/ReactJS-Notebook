@@ -1,3 +1,9 @@
+---
+id: react-batching
+title: Batching
+sidebar_position: 12
+---
+
 # Batching ⚙️
 
 In ReactJS, batching refers to a process that helps improve the performance of rendering updates to the user interface. It involves grouping multiple state updates or other React operations into a single batch, which is then processed together by React, reducing the number of actual updates performed.
