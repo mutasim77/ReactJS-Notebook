@@ -1,8 +1,14 @@
+---
+id: errorboundary
+title: ErrorBoundary
+sidebar_position: 8
+---
+
 # React error handling with react-error-boundary ☄️
 
 Errors are bound to happen in our applications, whether they’re server-related errors, edge cases, or others. As such, many methods have been developed to prevent these errors from interfering with user and developer experience. In React, one such method is the use of error boundaries.
 
-- ## Error boundaries in React 🟡
+ ## Error boundaries in React 🟡
 Error boundaries were introduced in React 16 as a way to catch and handle JavaScript errors that occur in the UI parts of our component. So error boundaries only catch errors that occur in a lifecycle method, render method, and inside Hooks like <code>useEffect</code>. According to the React documentation, error boundaries do not handle errors in:
 - Event handlers
 - Asynchronous code (e.g., setTimeout or requestAnimationFrame callbacks)
@@ -11,7 +17,6 @@ Error boundaries were introduced in React 16 as a way to catch and handle JavaSc
 
 So basically, error boundaries only handle errors in the parts of our code that involve React.
 
-<br>
 To create an error boundary, we simply have to create a class component and define a state variable for determining whether the error boundary has caught an error. Our class component should also have at least three methods:
 
 - A static method called getDerivedStateFromError, which is used to update the error boundary’s state
@@ -48,12 +53,12 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-- ## react-error-boundary 🔵
+## react-error-boundary 🔵
 
 react-error-boundary is a wrapper around React’s error boundary that allows developers to implement error boundaries in code without building them from scratch. With react-error-boundary, we can simply wrap components where we expect errors with the provided 
 <code>ErrorBoundary</code> component and pass in some extra props to customize our error boundary’s behavior.
 
-- ## ErrorBoundary component 🔴
+## ErrorBoundary component 🔴
 
 The ErrorBoundary component is the main component available in react-error-boundary. It allows us to implement the typical React error boundary with less code.
 

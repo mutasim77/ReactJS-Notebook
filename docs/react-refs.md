@@ -1,3 +1,9 @@
+---
+id: refs
+title: Refs
+sidebar_position: 9
+---
+
 # React refs 🖇
 
 As is the case with many other UI libraries, React offers a way to rethink a view as the result of a state of a component. This is a big pivot away from how we usually build applications.
@@ -12,7 +18,7 @@ An example of this would be auto-focusing a text box when a component renders. R
 
 In this article, we’re going to investigate why React, a framework meant to abstract your code away from DOM manipulation, leaves the door open for developers to access it.
 
-- ## Creating refs 🔴
+## Creating refs 🔴
 
 When working with class-based components in the past, we used <code>createRef()</code> to create a ref. However, now that React recommends functional components, and general practice is to follow the Hooks way of doing things, we don’t need to use <code>createRef()</code>. Instead, we use <code>useRef(null)</code> to create refs in functional components.
 
@@ -30,7 +36,7 @@ const ActionButton = ({ label, action }) => {
 export default ActionButton;
 ```
 
-The ```<button>``` expression here is actually the JSX way of calling the React.createElement('button') statement, which is not actually a representation of an HTML button element — it’s a React element.
+The ```<button>``` expression here is actually the JSX way of calling the `React.createElement('button')` statement, which is not actually a representation of an HTML button element — it’s a React element.
 
 You can gain access to the actual HTML element by creating a React reference and passing it to the element itself.
 
@@ -51,7 +57,7 @@ This way, at any time in the lifecycle of the component, we can access the actua
 
 Now we know how to access DOM nodes inside a React component. Let’s take a look at some of the situations where this may be useful.
 
-- ## Using React refs 🟣
+## Using React refs 🟣
 
 One of the many concepts that React popularized among developers is the concept of declarative views. Before declarative views, most of us were modifying the DOM by calling functions that explicitly changed it.
 
@@ -60,7 +66,7 @@ As mentioned at the introduction of this article, we are now declaring views bas
 Because of this inversion of control, we’d lose this imperative nature if it weren’t for refs.
 Here are a few use cases where it may make sense to bring refs into your code.
 
-- ## Focus control 🟡
+## Focus control 🟡
 
 You can achieve focus in an element programmatically by calling <code>focus()</code> on the node instance.
 Because the DOM exposes this as a function call, the best way to do this in React is to create a ref and manually do it when we think it’s suitable.
@@ -163,11 +169,11 @@ export default InputModal;
 ```
 
 So when you open the modal, you should see the text box focused by default:
-<img width="700" alt="Screen Shot 2023-02-03 at 12 02 14 PM" src="https://user-images.githubusercontent.com/96326525/216524586-defd12f8-0da7-44ca-9a34-4e6e3849856a.png">
+![refs pic](https://user-images.githubusercontent.com/96326525/216524586-defd12f8-0da7-44ca-9a34-4e6e3849856a.png)
 
 Remember that you need to access the element through the current property.
 
-- ## Conclusion 🔴
+## Conclusion 🔵
 
 We started with a recap on the basic concepts of React and its usage, why we generally shouldn’t break the framework’s model, and why we may sometimes need to.
 
