@@ -1,6 +1,3 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -10,23 +7,13 @@ const config = {
   tagline: `If you are not taking notes, you are not learning!`,
   favicon: 'img/logo.png',
 
-  // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'mutasim77', // Usually your GitHub org/user name.
-  projectName: 'ReactJS-Notebook', // Usually your repo name.
+  organizationName: 'mutasim77',
+  projectName: 'ReactJS-Notebook',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -84,8 +71,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Notes',
                 to: '/docs/introduction',
+              },
+              {
+                label: 'Hooks',
+                to: '/docs/Hooks/react-hooks',
               },
             ],
           },
@@ -93,16 +84,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discordapp.com/users/mvtasim',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/mvtasim77',
               },
             ],
           },
@@ -111,16 +98,16 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                href: '/blog'
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/mutasim77/ReactJS-Notebook',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © 2022 - ${new Date().getFullYear()} Mutasim`,
       },
       prism: {
         theme: lightCodeTheme,
