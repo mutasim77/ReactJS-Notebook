@@ -4,32 +4,33 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'My Notebook',
+    Svg: require('@site/static/img/personal_notebook.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        This is not just a website; it's my personal ReactJS notebook.
+        Dive into the pages filled with my experiences, code snippets,
+        and lessons learned as I master ReactJS.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Comprehensive ReactJS Insights',
+    Svg: require('@site/static/img/react_i.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Explore a treasure trove of ReactJS knowledge on my website. It's where I compile my insights,
+        tips, and discoveries, making it a valuable resource for anyone on their ReactJS journey.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Learn with Me',
+    Svg: require('@site/static/img/code_review.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Join me on my ReactJS learning adventure. Together, we'll navigate the intricacies of ReactJS,
+        sharing our challenges and triumphs. My website is your partner in this exciting journey.
       </>
     ),
   },
